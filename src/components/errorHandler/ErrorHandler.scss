@@ -1,0 +1,20 @@
+@import "../../index";
+
+$errorColor: #f44336;
+
+.ErrorHandler {
+  background-color: $secondary;
+  color: $errorColor;
+
+  & p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba($errorColor, .3);
+    padding: .5rem 4rem;
+  }
+
+  &-close {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,37 @@
+@import '../../index';
+
+.SearchResultItem {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  height: 6rem;
+  background-color: $secondary;
+  box-shadow: boxShadow($emphasis);
+  padding: 1rem 2rem;
+  margin-bottom: .5rem;
+  border-radius: $borderRadius;
+
+  &-avatar {
+    width: 4rem;
+    border-radius: 2.5px;
+    margin-right: 2rem;
+  }
+
+  &-login {
+    text-decoration: none;
+    color: $primary;
+    border-bottom: 2px dashed $emphasis;
+    transition: border .3s;
+
+    &:hover {
+      border-color: $primary;
+      border-bottom-style: solid;
+    }
+  }
+
+  &-id {
+    color: darken($emphasis, 20);
+  }
+}

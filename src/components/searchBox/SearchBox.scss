@@ -1,0 +1,49 @@
+@import "../../index";
+
+.searchbox-base {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.SearchBox {
+  display: inline-block;
+  @extend .searchbox-base;
+  max-height: 2.5rem;
+  max-width: 350px;
+  border-radius: 5px;
+  border: 1px solid $emphasis;
+  overflow: hidden;
+  &:focus-within {
+    border-color: $primary;
+  }
+
+  &-fieldtext {
+    @extend .searchbox-base;
+    width: calc(100% - 2.5rem);
+    padding: .25rem 1rem;
+    background-color: transparent;
+    font-size: clamp(1rem, 1vmin, 1.15rem);
+  }
+
+  &-submit {
+    @extend .searchbox-base;
+    max-width: 2.5rem;
+    height: 2.5rem;
+    background-color: $primary;
+    transition: background-color .3s;
+    &:hover {
+      background-color: lighten($primary, 10);
+    }
+    &:disabled {
+      background-color: $emphasis;
+    }
+    &:disabled &__icon {
+      color: $primary;
+    }
+    &__icon {
+      color: $secondary;
+    }
+  }
+}

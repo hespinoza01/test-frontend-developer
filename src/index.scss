@@ -1,0 +1,40 @@
+/**
+* The file contains the base style reset and variables used in the rest of the stylesheets
+*/
+
+/*
+* Variables Declaration
+*/
+// Palette Colors
+$primary: #333;
+$secondary: #fff;
+$emphasis: gainsboro;
+
+$borderRadius: 5px;
+
+// miscellaneous
+@function boxShadow($color, $longShadow:0px) {
+  @return 0px 0px 10px $longShadow $color;
+}
+
+
+/*
+* Styles Resets
+*/
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  background-color: #f6f6f6;
+}
+

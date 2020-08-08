@@ -1,0 +1,28 @@
+@import '../../index';
+
+.Home {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4rem calc(100vh - 4rem);
+  overflow: hidden;
+
+  .Home-Container {
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 40% 50%;
+    background-color: transparent;
+    padding-bottom: 1rem;
+    //padding: 1rem 4rem;
+  }
+
+  .Home-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: lighten($primary, 20);
+
+    & .icon {
+      margin-right: 1rem;
+    }
+  }
+}
