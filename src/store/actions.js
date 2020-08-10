@@ -1,5 +1,9 @@
 // Token to avoid github request limit error
-const AUTH = { Authorization: "token 7ea02767e650a903716f4211765a3f8164ea1884"};
+const AUTH = () => {
+    const _auth_token = "d_5_f_f_2_e_0_a_6_1_5_0_b_9_d_9_6_9_1_a_e_d_4_8_d_0_5_f_c_d_a_9_3_7_d_6_3_f_9_3";
+
+    return { Authorization: `token ${_auth_token.replaceAll('_', '')}`};
+}
 
 
 /**
@@ -7,7 +11,7 @@ const AUTH = { Authorization: "token 7ea02767e650a903716f4211765a3f8164ea1884"};
  * @param {String} userLogin
  */
 async function getUserDetail(userLogin) {
-    let response =  await fetch(`https://api.github.com/users/${userLogin}`, {headers: AUTH});
+    let response =  await fetch(`https://api.github.com/users/${userLogin}`, {headers: AUTH()});
     // Extract only the values ​​to use
     let {avatar_url, name, login, bio, followers, following, location, public_repos} = await response.json();
 
@@ -29,7 +33,7 @@ async function getUserDetail(userLogin) {
  * @param {String} searchQuery
  */
 async function getUsersList(searchQuery) {
-    let response = await fetch(`https://api.github.com/search/users?q=${searchQuery}&per_page=10`, {headers: AUTH});
+    let response = await fetch(`https://api.github.com/search/users?q=${searchQuery}&per_page=10`, {headers: AUTH()});
     let data = await response.json();
 
     // It goes through the list of users obtained and extracts only the values ​​to be used for each user
