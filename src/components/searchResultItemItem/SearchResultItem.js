@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 import './SearchResultItem.scss';
 
 // Import GlobalContext and action function to load userDetail

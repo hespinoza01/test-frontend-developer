@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {withRouter} from 'react-router-dom';
 import {useParams} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -17,12 +17,16 @@ function UserDetail({history}) {
     const {state} = useContext(GlobalStore);
     const [user, setUser] = useState({});
 
-    // check if detail exist, if not exist load from API
-    if(state.usersDetail.hasOwnProperty(githubLogin)){ console.log('yes')
-        setUser(state.usersDetail[githubLogin]);
-    }else {
-        getUserDetail(githubLogin).then(data => setUser(data));
-    }
+    const {usersDetail} = state;
+
+    useEffect(() => {
+        // check if detail exist, if not exist load from API
+        if(usersDetail.hasOwnProperty(githubLogin)){
+            setUser(usersDetail[githubLogin]);
+        }else {
+            getUserDetail(githubLogin).then(data => setUser(data));
+        }
+    }, [user, githubLogin, usersDetail]);
 
     return (
         <div className='UserDetail'>
